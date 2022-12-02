@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import '../styled/base.scss';
 import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -6,13 +6,17 @@ import { AiOutlineHome } from 'react-icons/ai';
 
 function Header(props) {
 	const innerRef = props.innerRef;
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () =>{
+		setOpen(!open)
+	}
 	return (
 		<>
 		<header className='main-header'  ref={innerRef}>
 			<div className='main-header-top'>
 				<div className='container2'>
-					<div className='main-header-top-flex'>
-						<a href='/'  className='main-header-top-icon'>
+					<div className= {open ? 'main-header-top-flex action' : 'main-header-top-flex'}>
+						<button onClick={handleOpen}  className='main-header-top-icon'>
 							<span className='box-icon'>
 								<span className='hamburger-menu'>
 									<span className="bar"></span>
@@ -21,7 +25,33 @@ function Header(props) {
 							<span className='box-text'>
 								menu
 							</span>
-						</a>
+						</button>
+						<div className = " sitenav-content sitenav-menu menu-mobile" id="siteNav-menu">
+							<div className="sitenav-content__title">		
+								<a href="https://osifood.vn" className="navlogo" aria-label="Trang chủ" title="Trang chủ">
+									<span className="icon-home">
+									</span>
+								</a>			
+								<button className="btnclose">
+								</button>
+							</div>
+							<div className="sitenav-content__block">
+								<div className="mobile-menu">
+									<div className="mobile-menu__inner mplus-menu vertical-navigation">				
+										<ul className="mobile-menu__linklists">					
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
+									
+										</ul>
+										
+									</div>
+								</div>
+							</div>
+						</div>
 						<div className='main-header-top-logo'>
 							<a>
 								<img src='/logo.webp'>

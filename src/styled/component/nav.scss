@@ -14,7 +14,64 @@
 			display: flex;
 			justify-content: space-between;
 			flex-flow: row nowrap;
+			position: relative;
+			&.action {
+				.main-header-top-icon{
+					.hamburger-menu .bar{
+						transform: rotate(45deg);
+						&::after{
+							top: 0;
+						}
+						&::before{
+							transform: rotate(90deg);
+							top: 0;
+						}
+					}
+
+				}
+				.sitenav-menu{
+				visibility: visible;
+				opacity: 1;
+				transform: scale(1);
+				transition: opacity 0.4s cubic-bezier(0, 1, 0.4, 1), transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), visibility 0.4s linear, -webkit-transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1);
+				}
+			}
+			.sitenav-menu {
+				min-width: auto;
+				width: 270px;
+				position: absolute;
+				top: 100%;
+				left: auto;
+				// right: -15px;
+				z-index: 990;
+				min-width: 280px;
+				border-radius: 3px;
+				color: #677279;
+				background: #fff;
+				box-shadow: 0 1px 5px 2px rgb(0 0 0 / 10%);
+				visibility: hidden;
+				opacity: 0;
+				transform: scale(0.9);
+				transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out, visibility 0.25s ease-in-out, max-height 0s linear 0.25s, -webkit-transform 0.25s ease-in-out;
+				will-change: transform;
+				
+				li a{
+					font-size: 13px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					font-weight: 700;
+					text-transform: uppercase;
+					position: relative;
+					padding-right: 32px;
+					padding-left: 15px;
+					font-weight: 400;
+					cursor: pointer;
+					display: block;
+					outline: none;
+				}
+			}
 		}
+		
 		&-icon{
 			background: #0089CF;
 			padding: 8px 15px;
@@ -40,19 +97,19 @@
 					top: 50%;
 					display: block;
 					margin: auto;
-					transition: all 0ms 100ms, width 150ms linear;
+					// transition: all 0ms 100ms, width 150ms linear;
 					transform: translateY(-2px);
 					&::after{
 						content: "";
 						position: absolute;
 						right: 0;
-						top: 6px;
+						bottom: 6px;
 					}
 					&::before{
 						content: "";
 						position: absolute;
 						right: 0;
-						top: 12px;
+						top: 6px;
 					}
 					
 				}
@@ -63,7 +120,6 @@
 				} 
 			}
 			.box-text{
-				margin-top: 2px;
 				white-space: nowrap;
 				text-align: center;
 				display: block;

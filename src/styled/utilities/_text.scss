@@ -1,0 +1,199 @@
+@for $i from 2 through 3 {
+  .text-truncate-#{$i} {
+    @include text-truncate($i);
+  }
+}
+
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+    .text#{$infix}-left {
+      text-align: left !important;
+    }
+    .text#{$infix}-center {
+      text-align: center !important;
+    }
+    .text#{$infix}-right {
+      text-align: right !important;
+    }
+
+    .fs#{$infix}-56 {
+      font-size: 56px !important;
+    }
+    .fs#{$infix}-40 {
+      font-size: 40px !important;
+    }
+    .fs#{$infix}-38 {
+      font-size: 38px !important;
+    }
+    .fs#{$infix}-36 {
+      font-size: 36px !important;
+    }
+    .fs#{$infix}-32 {
+      font-size: 32px !important;
+    }
+    .fs#{$infix}-30 {
+      font-size: 30px !important;
+    }
+    .fs#{$infix}-28 {
+      font-size: 28px !important;
+    }
+    .fs#{$infix}-24 {
+      font-size: 24px !important;
+    }
+    .fs#{$infix}-23 {
+      font-size: 23px !important;
+    }
+    .fs#{$infix}-22 {
+      font-size: 22px !important;
+    }
+    .fs#{$infix}-20 {
+      font-size: 20px !important;
+    }
+    .fs#{$infix}-19 {
+      font-size: 19px !important;
+    }
+    .fs#{$infix}-18 {
+      font-size: 18px !important;
+    }
+    .fs#{$infix}-16 {
+      font-size: 16px !important;
+    }
+    .fs#{$infix}-14 {
+      font-size: 14px !important;
+    }
+    .fs#{$infix}-13 {
+      font-size: 13px !important;
+    }
+    .fs#{$infix}-12 {
+      font-size: 12px !important;
+    }
+    .fs#{$infix}-10 {
+      font-size: 10px !important;
+    }
+    .fs#{$infix}-0 {
+      font-size: 0 !important;
+    }
+
+    .lh#{$infix}-normal {
+      line-height: normal !important;
+    }
+    .lh#{$infix}-2-78 {
+      line-height: 2.78 !important;
+    }
+    .lh#{$infix}-2-6 {
+      line-height: 2.6 !important;
+    }
+    .lh#{$infix}-2-5 {
+      line-height: 2.5 !important;
+    }
+    .lh#{$infix}-2-38 {
+      line-height: 2.38 !important;
+    }
+    .lh#{$infix}-2-29 {
+      line-height: 2.29 !important;
+    }
+    .lh#{$infix}-2-125 {
+      line-height: 2.125 !important;
+    }
+    .lh#{$infix}-2 {
+      line-height: 2 !important;
+    }
+    .lh#{$infix}-1-86 {
+      line-height: 1.86 !important;
+    }
+    .lh#{$infix}-1-8 {
+      line-height: 1.8 !important;
+    }
+    .lh#{$infix}-1-78 {
+      line-height: 1.78 !important;
+    }
+    .lh#{$infix}-1-75 {
+      line-height: 1.75 !important;
+    }
+    .lh#{$infix}-1-71 {
+      line-height: 1.71 !important;
+    }
+    .lh#{$infix}-1-63 {
+      line-height: 1.63 !important;
+    }
+    .lh#{$infix}-1-57 {
+      line-height: 1.57 !important;
+    }
+    .lh#{$infix}-1-43 {
+      line-height: 1.43 !important;
+    }
+    .lh#{$infix}-1-33 {
+      line-height: 1.33 !important;
+    }
+    .lh#{$infix}-1-3 {
+      line-height: 1.3 !important;
+    }
+    .lh#{$infix}-1-2 {
+      line-height: 1.2 !important;
+    }
+    .lh#{$infix}-1-18 {
+      line-height: 1.18 !important;
+    }
+    .lh#{$infix}-1 {
+      line-height: 1 !important;
+    }
+    .lh#{$infix}-0 {
+      line-height: 0 !important;
+    }
+
+    .fw#{$infix}-900 {
+      font-weight: 900 !important;
+    }
+    .fw#{$infix}-700 {
+      font-weight: 700 !important;
+    }
+    .fw#{$infix}-500 {
+      font-weight: 500 !important;
+    }
+    .fw#{$infix}-400 {
+      font-weight: 400 !important;
+    }
+    .fw#{$infix}-300 {
+      font-weight: 300 !important;
+    }
+    .fw#{$infix}-100 {
+      font-weight: 100 !important;
+    }
+    .fw#{$infix}-normal {
+      font-weight: normal !important;
+    }
+
+    .ls#{$infix}-1 {
+      letter-spacing: 1px !important;
+    }
+    .ls#{$infix}-2 {
+      letter-spacing: 2px !important;
+    }
+  }
+}
+
+// text color
+@each $color, $value in $colors {
+  .text-#{$color} {
+    color: $value !important;
+  }
+}
+
+.text-link {
+  a {
+    color: $blue1;
+    text-decoration: underline;
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &::after {
+    content: "\f054";
+    font-family: $awesome;
+    margin-left: $spacer * 2;
+    font-weight: 100;
+  }
+}

@@ -1,0 +1,87 @@
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+
+    @for $i from 0 through 100 {
+      .m#{$infix}-#{$i} {
+        margin: $spacer * $i !important;
+      }
+      .mt#{$infix}-#{$i},
+      .my#{$infix}-#{$i} {
+        margin-top: $spacer * $i !important;
+      }
+      .mb#{$infix}-#{$i},
+      .my#{$infix}-#{$i} {
+        margin-bottom: $spacer * $i !important;
+      }
+      .ml#{$infix}-#{$i},
+      .mx#{$infix}-#{$i} {
+        margin-left: $spacer * $i !important;
+      }
+      .mr#{$infix}-#{$i},
+      .mx#{$infix}-#{$i} {
+        margin-right: $spacer * $i !important;
+      }
+
+      .p#{$infix}-#{$i} {
+        padding: $spacer * $i !important;
+      }
+      .pt#{$infix}-#{$i},
+      .py#{$infix}-#{$i} {
+        padding-top: $spacer * $i !important;
+      }
+      .pb#{$infix}-#{$i},
+      .py#{$infix}-#{$i} {
+        padding-bottom: $spacer * $i !important;
+      }
+      .pl#{$infix}-#{$i},
+      .px#{$infix}-#{$i} {
+        padding-left: $spacer * $i !important;
+      }
+      .pr#{$infix}-#{$i},
+      .px#{$infix}-#{$i} {
+        padding-right: $spacer * $i !important;
+      }
+
+      .m#{$infix}-n#{$i} {
+        margin: -$spacer * $i !important;
+      }
+      .mt#{$infix}-n#{$i},
+      .my#{$infix}-n#{$i} {
+        margin-top: -$spacer * $i !important;
+      }
+      .mb#{$infix}-n#{$i},
+      .my#{$infix}-n#{$i} {
+        margin-bottom: -$spacer * $i !important;
+      }
+      .ml#{$infix}-n#{$i},
+      .mx#{$infix}-n#{$i} {
+        margin-left: -$spacer * $i !important;
+      }
+      .mr#{$infix}-n#{$i},
+      .mx#{$infix}-n#{$i} {
+        margin-right: -$spacer * $i !important;
+      }
+    }
+
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+  }
+}

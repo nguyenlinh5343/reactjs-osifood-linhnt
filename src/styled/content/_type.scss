@@ -1,0 +1,72 @@
+// headings
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-weight: 900;
+}
+
+.h1 {
+  font-size: $h1-font-size;
+}
+.h2 {
+  font-size: $h2-font-size;
+}
+.h3 {
+  font-size: $h3-font-size;
+}
+.h4 {
+  font-size: $h4-font-size;
+}
+
+// Blockquotes
+
+// Horizontal rules
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid;
+}
+
+// lists
+.list-unstyled {
+  @include list-unstyled;
+}
+.list-style-disc {
+  li {
+    padding-bottom: 24px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &::before {
+      content: "";
+      display: inline-block;
+      background-color: $black;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+}
+
+//Text nowrap
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.link {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,21 @@
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+
+    .w#{$infix}-25 {
+      width: 25% !important;
+    }
+    .w#{$infix}-50 {
+      width: 50% !important;
+    }
+    .w#{$infix}-75 {
+      width: 75% !important;
+    }
+    .w#{$infix}-100 {
+      width: 100% !important;
+    }
+    .w#{$infix}-auto {
+      width: auto !important;
+    }
+  }
+}

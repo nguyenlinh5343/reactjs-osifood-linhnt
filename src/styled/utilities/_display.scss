@@ -1,0 +1,12 @@
+// display
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+
+    @each $display in $displays {
+      .d#{$infix}-#{$display} {
+        display: $display !important;
+      }
+    }
+  }
+}

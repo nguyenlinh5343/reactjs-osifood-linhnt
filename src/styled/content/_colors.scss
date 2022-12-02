@@ -1,0 +1,27 @@
+@mixin theme($name, $colors) {
+  .#{$name} {
+    .bg-primary {
+      background-color: map-get($colors, primary);
+    }
+
+    .bg-success {
+      background-color: map-get($colors, success);
+    }
+
+    .bg-info {
+      background-color: map-get($colors, info);
+    }
+
+    .bg-danger {
+      background-color: map-get($colors, danger);
+    }
+
+    .bg-black {
+      background-color: map-get($colors, "black");
+    }
+  }
+}
+
+@each $name, $colors in $color-scheme {
+  @include theme($name, $colors);
+}

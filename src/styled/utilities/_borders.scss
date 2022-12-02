@@ -1,0 +1,52 @@
+// borders
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+
+    @for $i from 0 through 4 {
+      .border#{$infix}-#{$i} {
+        border: $i + px solid !important;
+      }
+      .border#{$infix}-top-#{$i} {
+        border-top: $i + px solid !important;
+      }
+      .border#{$infix}-right-#{$i} {
+        border-right: $i + px solid !important;
+      }
+      .border#{$infix}-bottom-#{$i} {
+        border-bottom: $i + px solid !important;
+      }
+      .border#{$infix}-left-#{$i} {
+        border-left: $i + px solid !important;
+      }
+
+      .border#{$infix}-x-#{$i} {
+        border-left: $i + px solid !important;
+        border-right: $i + px solid !important;
+      }
+
+      .border#{$infix}-y-#{$i} {
+        border-top: $i + px solid !important;
+        border-bottom: $i + px solid !important;
+      }
+    }
+  }
+}
+
+// borders colors
+@each $color, $value in $colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+// border-radius
+.rounded-circle {
+  border-radius: 50% !important;
+}
+.rounded-0 {
+  border-radius: 0 !important;
+}
+.rounded-pill {
+  border-radius: 50rem !important;
+}

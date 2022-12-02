@@ -1,0 +1,17 @@
+@function rem($target) {
+  $rem: $target / $font-size-base;
+  @return #{$rem}rem;
+}
+
+@function em($target) {
+  @return ($target / $font-size-base) * 1em;
+}
+
+@function vw($target, $breakpoint) {
+  $vw: calc(($breakpoint / 1px) * 0.01);
+  @return calc(($target / 1px) / $vw) * 1vw;
+}
+
+@function per($target, $parent) {
+  @return ($target * 100%) / $parent;
+}

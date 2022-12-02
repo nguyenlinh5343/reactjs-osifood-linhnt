@@ -1,0 +1,238 @@
+// kayframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// placeholder
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    //Chrome/Opera/Safari
+    @content;
+  }
+  &::-moz-placeholder {
+    // Firefox 19+
+    @content;
+  }
+  &:-ms-input-placeholder {
+    // IE 10+
+    @content;
+  }
+  &:-moz-placeholder {
+    // Firefox 18-
+    @content;
+  }
+}
+
+// scrollbar
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    // border-left: 1px solid #d8d8d8;
+    border: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+    border-radius: 10px;
+  }
+}
+
+// transform
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+@mixin transform-origin($property) {
+  -webkit-transform-origin: $property;
+  -moz-transform-origin: $property;
+  -ms-transform-origin: $property;
+  -o-transform-origin: $property;
+  transform-origin: $property;
+}
+
+// transition
+@mixin transition($property...) {
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -ms-transition: $property;
+  -o-transition: $property;
+  transition: $property;
+}
+
+// animation
+@mixin animation($property) {
+  -webkit-animation: $property;
+  -moz-animation: $property;
+  -ms-animation: $property;
+  -o-animation: $property;
+  animation: $property;
+}
+
+// clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// lists
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// images
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+// hover
+@mixin hover {
+  &:hover {
+    @content;
+  }
+}
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+@mixin plain-hover-focus {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+@mixin hover-focus-active {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+// arrows
+@mixin arrows($color, $width, $direction, $spacing) {
+  border: solid $color;
+  border-width: 0 $width $width 0;
+  display: inline-block;
+  padding: $spacing;
+
+  $rotate: "";
+  @if $direction == "left" {
+    $rotate: 135deg;
+  } @else if $direction == "right" {
+    $rotate: -45deg;
+  } @else if $direction == "up" {
+    $rotate: -135deg;
+  } @else {
+    $rotate: 45deg;
+  }
+  @include transform(rotate($rotate));
+}
+
+// text-truncate
+@mixin text-truncate($line) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  // autoprefixer: off
+  -webkit-box-orient: vertical;
+  // autoprefixer: on
+}
+
+// breakpoints
+@function breakpoint-min($name, $bps: $breakpoints) {
+  $value: map-get($bps, $name);
+  @return if($value != 0, $value, null);
+}
+@function breakpoint-max($name, $bps: $breakpoints) {
+  $bp-names: map-keys($bps);
+  $n: index($bp-names, $name);
+  $next: if($n != null and $n < length($bp-names), nth($bp-names, $n + 1), null);
+  @return if($next, map-get($bps, $next) - 0.02, null);
+}
+@function breakpoint-infix($name, $bps: $breakpoints) {
+  $value: map-get($bps, $name);
+  @return if($value != 0, "-#{$name}", "");
+}
+
+@mixin media-breakpoint-min($name, $bps: $breakpoints) {
+  $min: breakpoint-min($name, $bps);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max($name, $bps: $breakpoints) {
+  $max: breakpoint-max($name, $bps);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper, $bps: $breakpoints) {
+  $min: breakpoint-min($lower, $bps);
+  $max: breakpoint-max($upper, $bps);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-min($lower, $bps) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-max($upper, $bps) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-only($name, $bps: $breakpoints) {
+  $min: breakpoint-min($name, $bps);
+  $max: breakpoint-max($name, $bps);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-min($name, $bps) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-max($name, $bps) {
+      @content;
+    }
+  }
+}

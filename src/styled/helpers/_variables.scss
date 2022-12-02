@@ -1,0 +1,175 @@
+// font-size
+// $font-size-root: 16px;
+// $font-size-base: 16px;
+
+// color
+
+$primary: #0d2f81;
+$secondary: #07256c;
+$success: #ffafa2;
+$info: #b4d0e7;
+$warning: #763ef2;
+$danger: #ff564e;
+$danger-hover: #b23c37;
+
+$blue1: #0061ff !default;
+$blue2: #07256c !default;
+$blue3: #b4d0e7 !default;
+$blue4: #2b8be3 !default;
+$black: #000000 !default;
+$black2: #181a1d !default;
+$bricky: #ffafa2 !default;
+$yellow: #ffe3a0 !default;
+$white: #ffffff !default;
+$gray1: #f7f9fa !default;
+$gray2: #d6d6d6 !default;
+$gray3: #c4c4c4 !default;
+$gray4: #b8b8b8 !default;
+$gray5: #d1d1d2 !default;
+$gray6: #808080 !default;
+$gray7: #8d96b2 !default;
+$violet: #763ef2 !default;
+$brown: #61082b !default;
+$info: #495cfd !default;
+$requied: #ff564e !default;
+$green: #004d3c !default;
+
+$hover-text: #4d4d4d;
+$hover-link: #66a0ff;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #e2e4eb;
+$gray-600: #c6cad8;
+$gray-700: #8d96b2;
+$gray-800: #62687f;
+$gray-900: #343b4c;
+$black: #030303;
+$black-500: #f7f9fa;
+$black-600: #d6d6d6;
+$black-700: #b8b8b8;
+$black-800: #808080;
+$black-900: #595959;
+$light: $gray-100;
+$dark: $gray-800;
+$default: #fff;
+
+$colors: (
+  "blue1": $blue1,
+  "blue2": $blue2,
+  "blue4": $blue4,
+  "black": $black,
+  "black2": $black2,
+  "black800": $black-800,
+  "bricky": $bricky,
+  "yellow": $yellow,
+  "white": $white,
+  "gray1": $gray1,
+  "gray2": $gray2,
+  "gray3": $gray3,
+  "gray6": $gray6,
+  "gray7": $gray7,
+  "danger": $requied,
+);
+
+// spacing
+$spacer: 8px;
+$placeholder: #a3a3a5 !default;
+
+// Grid columns
+$grid-columns: 12;
+$cells: 40;
+
+// Utilities
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex, -webkit-box !default;
+$positions: static, relative, absolute, fixed, sticky !default;
+
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-medium: 0.875rem;
+$font-size-small: 0.75rem; //ceil(($font-size-base * .85)) ; // ~12px
+
+$font-size-lg: $font-size-base * 1.25;
+$font-size-md: $font-size-base * 1;
+$font-size-sm: $font-size-base * 0.75;
+$font-size-xs: $font-size-base * 0.625;
+
+// Z-index list
+$zindex-dropdown: 1000 !default;
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+
+// Typography
+$h1-font-size: 32px !default;
+$h2-font-size: 24px !default;
+$h3-font-size: 20px !default;
+$h4-font-size: 16px !default;
+$p-size: 18px !default;
+
+$border-width: 1px;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.75;
+
+$border-radius-base: 4px;
+$border-radius-large: 6px;
+$border-radius-small: 3px;
+
+$border-radius: 0.125rem;
+$border-radius-lg: 0.2rem;
+$border-radius-md: 0.2rem;
+$border-radius-sm: 0.175rem;
+$border-radius-xs: 0.15rem;
+
+$alert-padding: 15px;
+$alert-padding-y: 0.75rem;
+$alert-padding-x: 1.25rem;
+$alert-margin-bottom: 1rem;
+$alert-border-radius: $border-radius;
+$alert-link-font-weight: $font-weight-bold;
+$alert-border-width: $border-width;
+
+$alert-bg-level: -10;
+$alert-border-level: -9;
+$alert-color-level: -10;
+
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
+$box-shadow: 0 0.3rem 1.1rem #b0c5cf40;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175);
+
+// Breakpoints
+$breakpoints: (
+  sp: 0,
+  tb: 679px,
+  pc: 1441px,
+) !default;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark,
+    "default": $default,
+  ),
+  $theme-colors
+);
+
+$awesome: "Font Awesome 5 Pro";

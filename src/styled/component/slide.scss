@@ -1,0 +1,23 @@
+.slide-top{
+	.slick-prev{
+		left: 25px;
+	} 
+	.slick-next{
+		right: 25px;
+		visibility: hidden;
+	}
+	&:hover{
+		cursor: pointer;
+		.slick-prev, .slick-next{
+			z-index: 2;
+			background: transparent;
+			border-radius: 50%;
+			visibility: inherit;
+
+		}
+		
+		.slick-prev:before, .slick-next:before{
+			background-color: transparent;
+		}
+	}
+}

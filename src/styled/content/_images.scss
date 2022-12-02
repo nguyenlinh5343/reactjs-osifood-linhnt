@@ -1,0 +1,16 @@
+// img fluid
+.img-fluid {
+  @include img-fluid();
+}
+
+// Figures
+.figure {
+  display: inline-block;
+}
+
+.figure-caption {
+  color: #d1d1d2;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 24px;
+}

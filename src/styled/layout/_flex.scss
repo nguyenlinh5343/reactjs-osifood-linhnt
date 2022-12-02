@@ -1,0 +1,58 @@
+@use 'sass:math';
+
+// row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// col
+%grid-column {
+  position: relative;
+  width: 100%;
+}
+@each $bp in map-keys($breakpoints) {
+  $infix: breakpoint-infix($bp);
+
+  @include media-breakpoint-min($bp) {
+    .col#{$infix} {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    .col#{$infix}-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+      .col#{$infix}-#{$i} {
+        flex: 0 0 percentage(math.div($i, $grid-columns));
+        max-width: percentage(math.div($i, $grid-columns));
+      }
+    }
+
+    @for $i from 0 through $grid-columns {
+      .order#{$infix}-#{$i} {
+        order: $i;
+      }
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col#{$infix}-#{$i} {
+      @extend %grid-column;
+    }
+  }
+
+  .col#{$infix},
+  .col#{$infix}-auto {
+    @extend %grid-column;
+  }
+
+  .flex-direction#{$infix}-column {
+    flex-direction: column;
+  }
+}

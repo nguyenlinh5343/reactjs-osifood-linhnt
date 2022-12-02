@@ -1,0 +1,35 @@
+.d-grid {
+  display: grid;
+  width: 100%;
+}
+.d-inherit {
+  display: inherit;
+}
+.grid-columns-inherit {
+  grid-template-columns: inherit;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(var(--cells), 1fr);
+  grid-auto-rows: minmax(max-content, var(--cellSize));
+
+  --section-spacing: calc(var(--cellSize) * 4);
+  --children-spacing: calc(var(--cellSize) * 4);
+
+  width: 100%;
+  margin: 0;
+}
+
+@each $bp in map-keys($breakpoints) {
+  @include media-breakpoint-min($bp) {
+    $infix: breakpoint-infix($bp);
+
+    @for $i from 0 through 24 {
+      .grid#{$infix}-#{$i} {
+        grid-column-start: $i !important;
+        grid-column-end: -$i !important;
+      }
+    }
+  }
+}
