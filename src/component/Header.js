@@ -3,9 +3,17 @@ import '../styled/base.scss';
 import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { AiOutlineHome } from 'react-icons/ai';
+import { Routes, Route, BrowserRouter , Link } from 'react-router-dom';
 
 function Header(props) {
 	const innerRef = props.innerRef;
+	const listmenu = [{name:'Trang chủ', route:"/"},
+	{name:'Giới thiệu', route:"/intro"},
+	{name:'Sản phẩm', route:"/products"},
+	{name:'Bài viết', route:"/articles"},
+	{name:'Liên hệ', route:"/contact"},
+	{name:'Tuyển dụng', route:"/hiring"}
+]
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () =>{
 		setOpen(!open)
@@ -38,16 +46,11 @@ function Header(props) {
 							<div className="sitenav-content__block">
 								<div className="mobile-menu">
 									<div className="mobile-menu__inner mplus-menu vertical-navigation">				
-										<ul className="mobile-menu__linklists">					
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-											<li className="navi1"><a href="/">Đang khuyến mãi</a></li>
-									
+										<ul className="mobile-menu__linklists">		
+										{ listmenu.map((item, index) => 
+											<li className="navi1"><Link to={item.route}>{item.name}</Link></li>
+										)}			
 										</ul>
-										
 									</div>
 								</div>
 							</div>
@@ -109,36 +112,13 @@ function Header(props) {
 							</span>
 						</a>
 						<ul className='menu-list'>
-							<li className='menu-list-item'>
-								<a href="#">
-									Trang chủ
-								</a>
+						{ listmenu.map((item, index) => 
+						<li className='menu-list-item'>
+								<Link to={item.route}>
+								{item.name}
+								</Link>
 							</li>
-							<li className='menu-list-item'>
-								<a href="#">
-									Giới thiệu
-								</a>
-							</li>
-							<li className='menu-list-item'>
-								<a href="#">
-									Sản phẩm
-								</a>
-							</li>
-							<li className='menu-list-item'>
-								<a href="#">
-									Bài viết
-								</a>
-							</li>
-							<li className='menu-list-item'>
-								<a href="#">
-									Liên hệ
-								</a>
-							</li>
-							<li className='menu-list-item'>
-								<a href="#">
-									Tuyển dụng
-								</a>
-							</li>
+						)}
 						</ul>
 					</div>
 				</div>
