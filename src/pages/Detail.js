@@ -1,8 +1,11 @@
 import React from 'react'
+import ItemDetail from '../component/ItemDetail'
 
 function Detail() {
 	return (
-		<div>Detail</div>
+		<>
+		<ItemDetail/>
+		</>
 	)
 }
 

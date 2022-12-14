@@ -1,6 +1,3 @@
-@import "component/nav";
-@import "component/slide";
-@import "component/list-product";
 
 
 @import "helpers/keyframes";
@@ -26,3 +23,10 @@
 @import "utilities/display";
 @import "utilities/flex";
 @import "utilities/text";
+
+@import "component/nav";
+@import "component/slide";
+@import "component/list-product";
+@import "component/footer";
+@import "component/cart";
+

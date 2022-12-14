@@ -100,34 +100,41 @@
 						position: relative;
 						input{
 							border: none;
+							max-width: 60%;
+							font-size: 14px;
+							text-align: center;
+							&:focus-visible{
+								border: none;
+							}
 						}
 						.btnqty{
 							height: 30px;
 							width: 30px;
 
 							&.proloop-minus{
+								position: relative;
 								&::after{
 									content: "";
+									position: absolute;
 									background: #008848;
 									width: 16px;
 									height: 2px;
 									display: block;
-									margin-left: 5px;
+									right: 25%;
 								}
 							}
 							&.proloop-plus{
-								position: absolute;
-								right: 0;
+								position: relative;
 								&::after{
 									content: "";
 									background: #008848;
 									width: 16px;
 									height: 2px;
 									display: block;
-									margin-left: 5px;
-									top: 50%;
+									top: calc(50% - 1px);
+									left: 50%;
 									position: absolute;
-									transform: translateY(-50%);
+									transform: translate(-50%);
 								}
 								&::before{
 									content: "";
@@ -135,13 +142,12 @@
 									width: 2px;
 									height: 16px;
 									display: block;
-									right: 50%;
-									top: 25%;
+									right: calc(50% - 2px);
+									top: 50%;
 									position: absolute;
-									transform: translate(-50%);
+									transform: translate(-50%,-50%);
 								}
 							}
-							
 						}
 					}
 				}

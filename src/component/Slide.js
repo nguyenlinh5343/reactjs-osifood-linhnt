@@ -16,9 +16,7 @@ function Slide(props) {
 console.log(props);
 	return (
 		<>
-			<section style={{
-				marginTop: props.headerHeight
-			}}>
+			<section >
 				<div className="container2">
 				<Slider {...settings}>
 					<div>
